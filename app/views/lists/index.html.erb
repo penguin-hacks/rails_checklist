@@ -1,0 +1,32 @@
+<center><p id="notice"><%= notice %></p></center>
+<head>
+
+</head>
+<div>
+<h1>My To-do List</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>List Item</th>
+      <th>Completed?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+    <tbody>
+    <% @lists.each do |list| %>
+      <%= form_for(list) do |f| %>
+        <tr>
+          <td><%= list.description %> <%= f.submit "Update Checklist Item" %></td>
+          <td>
+          <%= f.check_box :completed %>
+          </td>
+          <td class="btn btn-secondary"><%= link_to 'Show', list %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
